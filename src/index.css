@@ -3,68 +3,73 @@
 @tailwind utilities;
 
 /* * {
-  border: 1px solid red;
+	border: 1px solid red;
 } */
 
 body {
-  background-color: #F8F9FA;
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	background-color: #f8f9fa;
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: 'Courier New', monospace;
+	font-family: "Courier New", monospace;
 }
 
-h1,h2,h3,h4,h5,h6 {
-  @apply font-bold font-serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@apply font-bold font-serif;
 }
 
 h1 {
-  @apply text-4xl;
+	@apply text-4xl;
 }
 
 h2 {
-  @apply text-3xl;
+	@apply text-3xl;
 }
 
 h3 {
-  @apply text-2xl;
+	@apply text-2xl;
 }
 
 h4 {
-  @apply text-xl;
+	@apply text-xl;
 }
 
 h5 {
-  @apply text-lg;
+	@apply text-lg;
 }
 
 h6 {
-  @apply text-base;
+	@apply text-base;
 }
 
 p {
-  @apply text-base font-normal font-sans leading-7;
+	@apply text-base font-normal font-sans leading-7;
 }
 
 .sidebar {
-  @apply fixed top-0 left-0 w-24 p-4 flex h-screen flex-col border-r bg-white space-y-2 transition duration-300 ease-in-out;
+	@apply fixed top-0 left-0 w-24 p-4 flex h-screen flex-col border-r bg-white space-y-2 transition duration-300 ease-in-out;
 }
 
 .sidebar-pos {
-  @apply p-4 cursor-pointer;
+	@apply p-4 cursor-pointer;
 }
 
 .sidebar-pos span {
- @apply hidden overflow-hidden;
+	@apply hidden overflow-hidden;
 }
 
 .sidebar--open {
-  @apply w-[300px] px-4 transition duration-300 ease-in-out;
+	@apply w-[300px] px-4 transition duration-300 ease-in-out;
 }
 
 .sidebar--open .sidebar-pos span {
-  @apply block w-full h-auto;
+	@apply block w-full h-auto;
 }

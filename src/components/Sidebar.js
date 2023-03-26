@@ -1,10 +1,7 @@
 import logo from "../assets/images/logo.svg";
 import avatar from "../assets/images/avatar.png";
 import home from "../assets/images/home.svg";
-import buy from "../assets/images/buy.svg";
-import like from "../assets/images/like.svg";
 import quran from "../assets/images/quran.svg";
-import attribution from "../assets/images/attribution.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 

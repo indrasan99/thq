@@ -6,25 +6,8 @@ import Home from "./pages/Home";
 import BacaAlQuran from "./pages/BacaAlQuran";
 import Surah from "./pages/Surah";
 import axios from "axios";
-import { API_URL } from "./utils/constants";
+import { ALQURAN_URL } from "./utils/constants";
 
-// function App() {
-//   return (
-//     <div className="w-full">
-//       <div className="ml-24">
-//         <div className="px-6 py-12">
-//           <Routes>
-//             <Route path='/' element={<Home />} />
-//             <Route path='baca-alquran' element={<BacaAlQuran />} />
-//             <Route path='surah' element={<Surah />} />
-//           </Routes>
-//         </div>
-//       </div>
-
-//       <Sidebar />
-//     </div>
-//   );
-// }
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -34,17 +17,17 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(API_URL + 'surat')
+    axios.get(ALQURAN_URL)
       .then(response => {
-        const surahs = response.data.data;
+        const surahs = response.data.data.surahs;
+        // const surahs = response;
         this.setState({ surahs });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      }, []);
   }
 
   render() {
+    if (!this.state.surahs) return null;
+
     return (
       <div className="w-full">
         <div className="ml-24">

@@ -2,9 +2,9 @@ import React from "react";
 import quran from "../assets/images/quran.svg";
 import { Link } from "react-router-dom";
 
-function Surah(props) {
+function SurahSquare(props) {
     return (
-        <Link to={'/baca-alquran/surah/' + props.nomor} className="group relative block h-64 sm:h-80 lg:h-96">
+        <Link to={'/baca-alquran/surah/' + props.nomor} className="group relative block h-32 sm:h-40 lg:h-56">
             <span className="absolute inset-0 border-2 border-dashed border-black"></span>
 
             <div
@@ -19,7 +19,7 @@ function Surah(props) {
                         alt="beli al-quran"
                     />
                     <h2 className="mt-4 text-xl font-medium sm:text-2xl">
-                        { props.nomor + '. '} {props.namaLatin}
+                        {props.nomor + '. '} {props.namaLatin}
                     </h2>
                 </div>
 
@@ -47,16 +47,17 @@ class SurahList extends React.Component {
         const rows = [];
 
         this.props.surahs.forEach((surah) => {
-            if (surah.namaLatin.indexOf(filterText) === -1) {
+            if (surah.englishName.indexOf(filterText) === -1) {
                 return;
             }
 
             rows.push(
-                <Surah
-                    namaLatin={surah.namaLatin}
-                    arti={surah.arti}
-                    nomor={surah.nomor}
-                    key={surah.nomor}
+                <SurahSquare
+                    nomor={surah.number}
+                    nama={surah.name}
+                    namaLatin={surah.englishName}
+                    arti={surah.englishNameTranslation}
+                    tempatTurun={surah.revelationType}
                 />
             )
         })
@@ -117,23 +118,6 @@ class SearchBar extends React.Component {
         );
     }
 }
-function PageTitle(props) {
-    return (
-        <>
-            <h1 className="mb-4">{props.title}</h1>
-
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus nulla saepe autem praesentium impedit cupiditate molestiae magni consectetur labore, similique tenetur minus sed explicabo culpa cumque dolorem error fuga qui laboriosam ipsa.
-                <a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://indrasan99.github.io">
-                    content
-                </a>
-            </p>
-        </>
-    );
-}
 
 class FilterableQuran extends React.Component {
     constructor(props) {
@@ -160,6 +144,7 @@ class FilterableQuran extends React.Component {
                     onFilterTextChange={this.handleFilterTextChange}
                 />
                 <SurahList
+                    key={this.props.surahs}
                     surahs={this.props.surahs}
                     filterText={this.state.filterText}
                 />
