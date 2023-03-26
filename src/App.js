@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import BacaAlQuran from "./pages/BacaAlQuran";
 import Surah from "./pages/Surah";
+import Atribusi from "./pages/Atribusi";
 import axios from "axios";
 import { ALQURAN_URL } from "./utils/constants";
 
@@ -20,7 +21,6 @@ class App extends React.Component {
     axios.get(ALQURAN_URL)
       .then(response => {
         const surahs = response.data.data.surahs;
-        // const surahs = response;
         this.setState({ surahs });
       }, []);
   }
@@ -36,6 +36,7 @@ class App extends React.Component {
               <Route path='/' element={<Home />} />
               <Route path='/baca-alquran' element={<BacaAlQuran surahs={this.state.surahs} />} />
               <Route path='/baca-alquran/surah/:nomor' element={<Surah />} />
+              <Route path='/atribusi' element={<Atribusi />} />
             </Routes>
           </div>
         </div>

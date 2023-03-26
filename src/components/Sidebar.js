@@ -2,6 +2,7 @@ import logo from "../assets/images/logo.svg";
 import avatar from "../assets/images/avatar.png";
 import home from "../assets/images/home.svg";
 import quran from "../assets/images/quran.svg";
+import attribution from "../assets/images/attribution.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -35,27 +36,7 @@ function Sidebar() {
                 <span className="text-sm font-medium">Baca Al-Quran</span>
             </Link>
 
-            {/* <div
-                className="sidebar-pos flex justify-center items-center gap-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                <img
-                    src={buy}
-                    className="w-5 h-5 opacity-75"
-                    alt="beli al-quran"
-                />
-                <span className="text-sm font-medium">Beli Al-Quran</span>
-            </div>
-
-            <div
-                className="sidebar-pos flex justify-center items-center gap-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                <img
-                    src={like}
-                    className="w-5 h-5 opacity-75"
-                    alt="dukung kami"
-                />
-                <span className="text-sm font-medium">Suka? Dukung</span>
-            </div>
-
-            <div
+            <Link to='atribusi'
                 className="sidebar-pos flex justify-center items-center gap-2 rounded-lg text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                 <img
                     src={attribution}
@@ -63,7 +44,7 @@ function Sidebar() {
                     alt="atribusi"
                 />
                 <span className="text-sm font-medium">Atribusi</span>
-            </div> */}
+            </Link>
 
             <div className="sidebar-pos absolute inset-x-0 bottom-0 border-t border-gray-100">
                 <div
@@ -71,7 +52,7 @@ function Sidebar() {
                     <img
                         alt="Indras Avatar"
                         src={avatar}
-                        className="h-10 w-10 rounded-full object-cover border shadow-sm"
+                        className="h-10 w-10 rounded-full object-cover border shadow-sm mr-2"
                     />
                     <span>
                         <p className="text-xs">
