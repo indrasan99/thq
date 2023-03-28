@@ -28,7 +28,8 @@ module.exports = {
       },
       fontFamily: {
         'serif': ['Roboto Slab', 'serif'],
-        'sans': ['Roboto', 'sans-serif']
+        'sans': ['Roboto', 'sans-serif'],
+        'arabic': ['Amiri Quran Regular']
       }
     },
   },

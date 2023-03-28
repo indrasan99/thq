@@ -4,7 +4,6 @@ import { SURAH_ID_URL } from "../utils/constants";
 import { useParams } from "react-router-dom";
 import AudioPlayer from "../components/AudioPlayer";
 
-
 function Surah() {
   const [surah, setState] = useState([]);
   const param = useParams();
@@ -21,10 +20,10 @@ function Surah() {
 
   const listItem = ayahs.map(ayah =>
     <div className="w-full py-4 ml-auto mb-4" key={ayah.nomorAyat}>
-      <div className="flex justify-end pl-4">
-        <div className="w-full mt-1 py-4 mr-8">
+      <div className="flex justify-end">
+        <div className="w-full mt-1 py-4 mr-4">
 
-          <p className="flex justify-end text-5xl text-gray-700 mb-6 pb-6 border-dashed border-b border-b-hunter">{ayah.teksArab}</p>
+          <p dir="rtl" className="font-arabic leading-[80px] sm:leading-[100px] lg:leading-[120px] flex text-4xl sm:text-5xl lg:text-6xl text-gray-700 mb-6 pb-6 border-dashed border-b border-b-hunter">{ayah.teksArab}</p>
 
           <p className="flex justify-start text-lg text-gray-700 mb-6 pb-6 border-dashed border-b border-b-hunter">{ayah.teksLatin}</p>
           <p className="flex justify-start text-lg text-gray-700 pb-6 border-dashed border-b border-b-hunter">{ayah.teksIndonesia}</p>
@@ -57,13 +56,19 @@ function Surah() {
 
   return (
     <section>
-      <div className="flex p-4">
-        <div className="w-5/12 pr-4">
+      <div className="grid grid-cols-1 py-4 pr-4 gap-6">
+        <div className="pr-2">
           <div className="py-4 space-y-2">
 
-            <h2 className="text-3xl font-bold sm:text-4xl mb-4">
-              {surah.nama} / {surah.namaLatin}
-            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 relative">
+              <div className="text-xl font-bold sm:text-3xl lg:text-4xl whitespace-nowrap">{surah.namaLatin}</div>
+
+              <div dir="rtl" className="absolute -top-2 sm:-top-4 right-0 font-arabic text-3xl font-bold sm:text-5xl lg:text-6xl">{surah.nama}</div>
+            </div>
+
+
+            <h4
+              className="text-base font-medium pb-4">{surah.arti}</h4>
 
             <div
               className="inline-flex -space-x-px items-center overflow-hidden rounded-md border bg-hunter shadow-sm"
@@ -73,19 +78,13 @@ function Surah() {
               </svg>
 
               <span
-                className="inline-block px-4 py-2 text-sm font-medium text-white"
-              >
-                {surah.arti}
-              </span>
-
-              <span
-                className="inline-block px-4 py-2 text-sm font-medium text-white"
+                className="inline-block px-4 py-1 text-sm font-medium text-white"
               >
                 {surah.jumlahAyat} ayat
               </span>
 
               <span
-                className="inline-block px-4 py-2 text-sm font-medium text-white"
+                className="inline-block px-4 py-1 text-sm font-medium text-white"
               >
                 {surah.tempatTurun}
               </span>
@@ -93,8 +92,8 @@ function Surah() {
           </div>
 
           <div className="py-4">
-            <h5>Dengarkan seluruh surat</h5>
-            <audio className="w-full" controls>
+            <div className="text-base lg:text-xl font-bold mb-2">Dengarkan murottal</div>
+            <audio className="max-w-xl w-full" controls loop={false}>
               <source src={surah.audioFull['05']} />
             </audio>
           </div>
@@ -106,9 +105,8 @@ function Surah() {
           </div>
         </div>
 
-        <div className="w-7/12 flex flex-col p-4">
-
-          <h3 className="mb-6">Baca atau dengarkan ayat demi ayat</h3>
+        <div className="flex flex-col py-4">
+          <div className="text-xl lg:text-2xl font-bold mb-6">Baca atau dengarkan ayat demi ayat</div>
 
           {listItem}
         </div>
