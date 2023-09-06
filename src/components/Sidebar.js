@@ -50,7 +50,7 @@ function Sidebar() {
 					className="w-5 h-5 opacity-75"
 					alt="Tanda terakhir baca Al-Quran"
 				/>
-				<span className="text-sm font-medium">Baca Al-Quran</span>
+				<span className="text-sm font-medium">Bookmark</span>
 			</Link>
 
 			<Link
@@ -65,33 +65,45 @@ function Sidebar() {
 				<span className="text-sm font-medium">Atribusi</span>
 			</Link>
 
-			<div className="sidebar-pos absolute inset-x-0 bottom-0 border-t border-gray-100">
+			<div className="sidebar-pos absolute inset-x-0 bottom-0 border-t border-gray-200 pt-4">
 				<div className="bg-white flex flex-col justify-center items-center gap-2">
-					<a
-						href="https://indraswork.my.id"
-						rel="noreferrer"
-						target="_blank"
-						className="text-xs font-medium"
+					<div
+						className={`flex items-center text-gray-500 text-sm w-36 ${
+							isOpen ? 'justify-start' : 'justify-center'
+						}`}
 					>
-						<img
-							alt="Indras Avatar"
-							src={avatar}
-							className="h-10 w-10 mx-auto rounded-full object-cover border shadow-sm mr-2  hover:border-gray-400"
-						/>
-					</a>
+						<a
+							href="https://indraswork.my.id"
+							rel="noreferrer"
+							target="_blank"
+						>
+							<img
+								alt="Indras Avatar"
+								src={avatar}
+								className="h-9 w-9 rounded-full object-cover border-2 shadow-sm mr-2 hover:border-gray-400"
+							/>
+						</a>
+						<div className={!isOpen && 'hidden'}>IndrasWork</div>
+					</div>
 
-					<a
-						href="https://indrasan99.github.io"
-						rel="noreferrer"
-						target="_blank"
-						className="text-xs font-medium"
+					<div
+						className={`flex items-center text-gray-500 text-sm w-36 ${
+							isOpen ? 'justify-start' : 'justify-center'
+						}`}
 					>
-						<img
-							alt="Indras Github"
-							src={github}
-							className="h-9 w-9 mx-auto rounded-full object-cover border shadow-sm mr-2  hover:text-gray-400"
-						/>
-					</a>
+						<a
+							href="https://indrasan99.github.io"
+							rel="noreferrer"
+							target="_blank"
+						>
+							<img
+								alt="Indras Github"
+								src={github}
+								className="h-9 w-9 rounded-full object-cover border shadow-sm mr-2  hover:text-gray-400"
+							/>
+						</a>
+						<div className={!isOpen && 'hidden'}>Indras Github</div>
+					</div>
 				</div>
 			</div>
 		</nav>

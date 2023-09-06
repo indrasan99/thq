@@ -3,6 +3,7 @@ import Sidebar from './components/Sidebar';
 import FilterableQuran from './components/FilterableQuran';
 import Home from './pages/Home';
 import Surah from './pages/Surah';
+import Bookmark from './pages/Bookmark';
 import Atribusi from './pages/Atribusi';
 import axios from 'axios';
 import { Routes, Route } from 'react-router-dom';
@@ -30,7 +31,10 @@ function App() {
 							path="/baca-alquran"
 							element={<FilterableQuran surahs={surahs} />}
 						/>
-						<Route path="/bookmark-alquran" element={<Surah />} />
+						<Route
+							path="/bookmark-alquran"
+							element={<Bookmark />}
+						/>
 						<Route
 							path="/baca-alquran/surah/:nomor"
 							element={<Surah />}

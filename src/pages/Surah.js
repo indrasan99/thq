@@ -3,15 +3,14 @@ import axios from 'axios';
 import { SURAH_ID_URL } from '../utils/constants';
 import { useParams } from 'react-router-dom';
 import AudioPlayer from '../components/AudioPlayer';
-import bookmark from '../assets/images/bookmark_ayah.svg';
+import bookmark from '../assets/images/bookmark.svg';
 
 function Surah() {
 	const [surah, setState] = useState([]);
 	const param = useParams();
-	let hasBookmark = '';
 
 	const toggleBookmark = (nomor) => {
-		if (hasBookmark !== null) {
+		if (localStorage.getItem('BookmarkAyat') !== null) {
 			localStorage.removeItem('BookmarkAyat');
 		} else {
 			localStorage.setItem(
@@ -22,14 +21,12 @@ function Surah() {
 	};
 
 	useEffect(() => {
-		hasBookmark = localStorage.getItem('BookmarkAyat');
-
-		console.log(localStorage.getItem('BookmarkAyat'));
+		localStorage.getItem('BookmarkAyat');
 
 		axios.get(SURAH_ID_URL + param.nomor).then((response) => {
 			setState(response.data.data);
 		});
-	}, []);
+	}, [param.nomor]);
 
 	const ayahs = surah.ayat;
 	if (!ayahs) return null;
